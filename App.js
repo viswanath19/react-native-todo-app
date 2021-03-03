@@ -6,6 +6,9 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
+        {/*<View>
+          <Text>How is your Day</Text>
+        </View>//this expected to inherit the parent view style header*/}
         <Text style={styles.textArea}>Welcome to the next step of career with React-Native! A big hello Viswanath.</Text>
       </View>
       <StatusBar style="auto" />
@@ -30,3 +33,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold"
   }
 });
+
+
+//The style of parent div not inherited to the child div. If child is of same component as parent then only the parent style is inherited
