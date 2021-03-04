@@ -1,13 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View, TextInput } from 'react-native';
 
 export default function App() {
   const [name, setName] = useState('Viswanath');
+  const [age, setAge] = useState(25);
 
-  setTimeout(async => {
+  /*setTimeout(async => {
     setName('Viswanath Sarma');
-  },10000);
+  },10000);*/
 
   return (
     <View style={styles.container}>
@@ -15,12 +16,21 @@ export default function App() {
         {/*<View>
           <Text>How is your Day</Text>
         </View>//this expected to inherit the parent view style header*/}
-        <Text style={styles.textArea}>Welcome to the next step of career with React-Native! A big hello {name}.</Text>
+        <Text style={styles.textArea}>Welcome to the next step of career with React-Native! A big hello {name} and Your Age is {age}.</Text>
         {/*Reason for embeding inside View is we can't add the style propert to the button*/}
-        <View style={styles.buttonContainer}>
+      </View>
+      <View style={styles.buttonContainer}>
+          <Text>Enter Name:</Text>
+          <TextInput style={styles.inputTextBox} 
+            placeholder={"Enter Your Name"} 
+            onChangeText={(val)=>{setName(val)}}/>
+          <Text>Enter Age:</Text>
+          <TextInput style={styles.inputTextBox} 
+            keyboardType="numeric"
+            placeholder={"Enter Your Age"} 
+            onChangeText={(val)=>{setAge(val)}}/>
           <Button title={'Update Name'} onPress={()=>{setName('Viswanath Sarma Allamraju')}}/>
         </View>
-      </View>
       <StatusBar style="auto" />
     </View>
   );
@@ -44,6 +54,14 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     padding: 20,
+    marginTop: 20,
+    marginBottom: 20
+  },
+  inputTextBox: {
+    borderWidth: 1,
+    borderColor: '#777',
+    padding: 10,
+    marginBottom: 20
   }
 });
 
