@@ -28,7 +28,7 @@ export default function App() {
       </View>
       {persons.map((item,index) => {
         return (
-          <View key={index} style={{maxWidth: 200, maxHeight: 200}}>
+          <View key={index} style={styles.listDiv}>
             <Text style = {styles.lists} onPress = {()=>{setName(item.name)}}>{item.name}</Text>
           </View>
         )
@@ -79,6 +79,12 @@ const styles = StyleSheet.create({
     borderColor: '#777',
     padding: 10,
     marginBottom: 20
+  },
+  listDiv : {
+    maxWidth: 200,
+    maxHeight: 200,
+    justifyContent: "center",
+    textAlign: "center"
   },
   lists: {
     backgroundColor: 'pink',
